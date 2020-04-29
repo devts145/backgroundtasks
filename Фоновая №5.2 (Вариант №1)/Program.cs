@@ -186,35 +186,29 @@ namespace Фоновая__5._2__Вариант__1_
                 pr[0] = new Parallelogram();
                 Console.WriteLine("Type angle alfa in parallelogram: ");
                 double ua = double.Parse(Console.ReadLine());
-                if (ua < 0) throw new Exception("Value of angle alfa was negative. ");
                 Console.WriteLine("Print height of parallelogram: ");
                 int uh = int.Parse(Console.ReadLine());
-                if (uh < 0) throw new Exception("Value of height was negative. ");
                 Console.WriteLine("Width: ");
                 int uw = int.Parse(Console.ReadLine());
-                if (uw < 0) throw new Exception("Value of width was negative. ");
+                if (ua < 0 ||uh < 0 || uw < 0) throw new Exception("Value of angle alfa or width or height in parallelogram was negative. ");
                 pr[1] = new Parallelogram(ua, uh, uw);
                 pr[2] = new Rectangle();
                 Console.WriteLine("Write height of rectangle: ");
                 uh = int.Parse(Console.ReadLine());
-                if (uh < 0) throw new Exception("Value of height was negative. ");
                 Console.WriteLine("Width of rectangle: ");
                 uw = int.Parse(Console.ReadLine());
-                if (uw < 0) throw new Exception("Value of width was negative. ");
                 Console.WriteLine("Alfa of rectangle: ");
                 ua = int.Parse(Console.ReadLine());
-                if (ua < 0) throw new Exception("Value of angle alfa was negative. ");
+                if (ua < 0 || uh < 0 || uw < 0) throw new Exception("Value of angle alfa or width or height in rectangle was negative. ");
                 pr[3] = new Rectangle(uh, uw, ua);
                 pr[4] = new Romb();
                 Console.WriteLine("Type alfa of romb: ");
                 ua = double.Parse(Console.ReadLine());
-                if (ua < 0) throw new Exception("Value of angle alfa was negative. ");
                 Console.WriteLine("Type height of romb: ");
                 uh = int.Parse(Console.ReadLine());
-                if (uh < 0) throw new Exception("Value of height was negative. ");
                 Console.WriteLine("Type width of romb: ");
                 uw = int.Parse(Console.ReadLine());
-                if (uw < 0) throw new Exception("Value of width was negative. ");
+                if (ua < 0 || uh < 0 || uw < 0) throw new Exception("Value of angle alfa or width or height in romb was negative. ");
                 pr[5] = new Romb(ua, uh, uw);
                 Console.WriteLine(" ");
                 Console.WriteLine(" ");
@@ -234,9 +228,9 @@ namespace Фоновая__5._2__Вариант__1_
                 }
                 Console.WriteLine("First two elements are parallelograms with and without parameters, second two elements of an array are rectangles with and wothout parameters, third two elements are rombs with and without parameters.  ");
                 Console.WriteLine(" ");
-                Console.WriteLine("Now, type index (from 0 to 6 (inclusive)) of element in wich you want to change fields of class. If you don't want to change, enter a number out of range. ");
+                Console.WriteLine("Now, type index (from 0 to 5 (inclusive)) of element in wich you want to change fields of class. If you don't want to change, enter a number out of range. ");
                 int cases = int.Parse(Console.ReadLine());
-                if(cases >= 0 && cases <= 5)
+                if (cases >= 0 && cases <= 5)
                 {
                     Console.WriteLine("Firstly, we will change angle alfa of {0}. Enter new alfa angle in degrees: ", pr[cases].GetType());
                     double newAlfa = double.Parse(Console.ReadLine());
@@ -256,10 +250,11 @@ namespace Фоновая__5._2__Вариант__1_
                     if (pr[cases].GetType() == typeof(Parallelogram)) Console.WriteLine("Area: {0} ", pr[cases].Area());
                     Console.WriteLine("Now I will demonstrate you working of the constructor (get). Height: {0}, width: {1}, angle alfa: {2}. ", pr[cases].hSv, pr[cases].widthSv, pr[cases].alfaSv);
                 }
+                else Console.WriteLine("Ok, goodbye, my friend! ");
             }
             catch (Exception exc)
             {
-                Console.WriteLine("An error in Main: {0}. ", exc.Message);
+                Console.WriteLine("An error in Main(!): {0}. ", exc.Message);
             }
             Console.ReadKey();
         }
